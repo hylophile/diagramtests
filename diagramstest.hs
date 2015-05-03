@@ -10,7 +10,7 @@ main = mainWith d
 
 {-d :: Diagram SVG V2 Double-}
 d :: Diagram B
-d = (mconcat $ take 8 $ iterate (rotateBy (1/8) . scale 1.1) c)
+d = (mconcat $ take 8 $ iterate (rotateBy (1/8)) c)
 c:: Diagram B
 c = hcat $ invisHead (map d' (take 7 (iterate (/1.618) 1)))
 
@@ -19,6 +19,6 @@ invisHead [] = []
 
 
 d' :: Double -> Diagram B
-d' r = scale r $ mconcat $ take 8 $ iterate (rotateBy (1/8)) c'
+d' r = scale r $ mconcat $ take 6 $ iterate (rotateBy (1/6)) c'
 c' :: Diagram B
-c' = hcat $ (map circle (take 7 (iterate (/1.618) 1)))
+c' = hcat $ (map circle (take 4 (iterate (/1.618) 1)))
